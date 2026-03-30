@@ -1,0 +1,33 @@
+{
+  "name": "quantum-security-assessment",
+  "version": "1.0.0",
+  "description": "Hackathon-grade cybersecurity assessment dashboard with animated score rings and risk classification",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 8000 -o",
+    "dev": "npx http-server -p 8000",
+    "serve": "python -m http.server 8000"
+  },
+  "keywords": [
+    "cybersecurity",
+    "dashboard",
+    "assessment",
+    "hackathon",
+    "ui",
+    "animation",
+    "pqc"
+  ],
+  "author": "Security Team",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/quantum-security-assessment"
+  },
+  "keywords": ["cybersecurity", "dashboard", "hackathon"],
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}

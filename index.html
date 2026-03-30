@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>⚡ Quantum Security Assessment</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div id="dashboard" style="display:block;">
+
+    <!-- HEADER -->
+    <header class="header">
+      <h1 class="title">⚡ Quantum Security Assessment</h1>
+      <p class="subtitle">Enterprise-Grade Cybersecurity Posture Analyzer</p>
+    </header>
+
+    <!-- INPUT SECTION -->
+    <div class="glass input-box">
+      <div class="input-container">
+        <input 
+          id="target" 
+          type="text"
+          placeholder="Enter domain (e.g. google.com)"
+          class="input-field"
+        >
+        <button onclick="scan()" class="scan-button">
+          <span class="button-text">Scan</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- LOADING STATE -->
+    <div id="loading" class="loading" style="display:none;">
+      <div class="spinner"></div>
+      <p>⏳ Scanning Target...</p>
+    </div>
+
+    <!-- SCORE + RISK SECTION -->
+    <div id="scoreSection" class="top-section" style="display:none;">
+      
+      <div class="score-container">
+        <div id="scoreCircle" class="score-circle">
+          <svg class="progress-ring" width="120" height="120">
+            <circle class="progress-ring__circle" cx="60" cy="60" r="54" />
+          </svg>
+          <span id="scoreText" class="score-text">0</span>
+        </div>
+        <p class="score-label">Security Score</p>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="risk-container">
+        <div id="riskBadge" class="badge">---</div>
+        <p class="risk-label">Risk Level</p>
+      </div>
+
+    </div>
+
+    <!-- PQC STATUS -->
+    <div id="pqcStatus" class="pqc-highlight" style="display:none;">
+      <span class="pqc-icon">🔐</span>
+      <span class="pqc-text">Post-Quantum Cryptography: <strong>COMPLIANT</strong></span>
+    </div>
+
+    <!-- DETAILS SECTION -->
+    <div id="details" class="grid details-grid"></div>
+
+    <!-- ASSET SUMMARY SECTION -->
+    <div class="assets-section" id="assetsSection" style="display:none;">
+      <h2 class="section-title">Asset Summary</h2>
+      <div class="grid assets-grid">
+        <div class="asset-card">
+          <div class="asset-icon">🌐</div>
+          <div class="asset-content">
+            <p class="asset-label">Domains</p>
+            <p class="asset-value" id="domains">0</p>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">🔐</div>
+          <div class="asset-content">
+            <p class="asset-label">SSL Certificates</p>
+            <p class="asset-value" id="ssl">0</p>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">🌍</div>
+          <div class="asset-content">
+            <p class="asset-label">IP Addresses</p>
+            <p class="asset-value" id="ips">0</p>
+          </div>
+        </div>
+        <div class="asset-card">
+          <div class="asset-icon">💻</div>
+          <div class="asset-content">
+            <p class="asset-label">Software Components</p>
+            <p class="asset-value" id="software">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ERROR STATE -->
+    <div id="errorMessage" class="error-box" style="display:none;"></div>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
