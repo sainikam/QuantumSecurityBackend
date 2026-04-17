@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cyber Security Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+
+    <!-- Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="loginPage" class="center">
+    <div class="login-box">
+        <h2>🔐 Secure Login</h2>
+        <input id="username" placeholder="Username"><br>
+        <input id="password" type="password" placeholder="Password"><br>
+        <button onclick="login()">Login</button>
+    </div>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <h2>Cyber Panel</h2>
+
+        <div onclick="showPage('home')">🏠 Home</div>
+        <div onclick="showPage('inventory')">📦 Inventory</div>
+        <div onclick="showPage('discovery')">🔍 Discovery</div>
+        <div onclick="showPage('crypto')">🔐 Crypto</div>
+        <div onclick="showPage('pqc')">⚛ PQC</div>
+        <div onclick="showPage('rating')">📊 Rating</div>
+        <div onclick="showPage('report')">📄 Reporting</div>
+    </div>
+
+    <div class="content">
+
+        <!-- HOME -->
+        <div id="home" class="page">
+            <h2>Security Overview</h2>
+
+            <div class="cards">
+                <div class="card">Assets <span id="assets">120</span></div>
+                <div class="card">Threats <span id="threats">18</span></div>
+                <div class="card high">High Risk <span id="high">6</span></div>
+            </div>
+
+            <div class="charts">
+                <canvas id="riskChart"></canvas>
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+
+        <!-- INVENTORY -->
+        <div id="inventory" class="page">
+            <h2>Asset Inventory</h2>
+
+            <table>
+                <tr><th>Asset</th><th>Status</th><th>Risk</th></tr>
+                <tr><td>web-app</td><td>Active</td><td class="high">High</td></tr>
+                <tr><td>api-service</td><td>New</td><td class="medium">Medium</td></tr>
+                <tr><td>db-server</td><td>Stable</td><td class="low">Low</td></tr>
+            </table>
+        </div>
+
+        <!-- DISCOVERY -->
+        <div id="discovery" class="page">
+            <h2>Asset Discovery</h2>
+            <div id="map"></div>
+        </div>
+
+        <!-- CRYPTO -->
+        <div id="crypto" class="page">
+            <h2>Cryptographic Analysis</h2>
+
+            <p>Weak Encryption Detected: <span class="high">5</span></p>
+
+            <canvas id="cryptoChart"></canvas>
+        </div>
+
+        <!-- PQC -->
+        <div id="pqc" class="page">
+            <h2>PQC Compliance</h2>
+
+            <table>
+                <tr><th>Asset</th><th>Status</th><th>Risk</th></tr>
+                <tr><td>system-1</td><td>Non-Compliant</td><td class="high">High</td></tr>
+                <tr><td>system-2</td><td>Partial</td><td class="medium">Medium</td></tr>
+            </table>
+        </div>
+
+        <!-- RATING -->
+        <div id="rating" class="page">
+            <h2>Cyber Risk Rating</h2>
+            <canvas id="ratingChart"></canvas>
+        </div>
+
+        <!-- REPORT -->
+        <div id="report" class="page">
+            <h2>Reporting</h2>
+            <button onclick="downloadCSV()">Download Report</button>
+        </div>
+
+    </div>
+</div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
